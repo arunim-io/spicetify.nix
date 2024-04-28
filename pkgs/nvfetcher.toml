@@ -32,7 +32,7 @@ fetch.git = "https://github.com/JulienMaille/spicetify-dynamic-theme"
 
 [retroBlurSrc]
 src.git = "https://github.com/Motschen/Retroblur"
-fetch.git= "https://github.com/Motschen/Retroblur"
+fetch.git = "https://github.com/Motschen/Retroblur"
 
 [omniSrc]
 src.git = "https://github.com/getomni/spicetify"
