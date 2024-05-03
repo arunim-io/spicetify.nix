@@ -6,69 +6,33 @@
   };
 
   outputs =
-    inputs@{
+    {
       self,
-      flake-parts,
       nixpkgs,
       systems,
+      ...
     }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = import systems;
+    let
+      eachSystem = nixpkgs.lib.genAttrs (import systems);
+      packages = eachSystem (
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
 
-      perSystem =
-        {
-          pkgs,
-          system,
-          config,
-          ...
-        }:
-        {
-          _module.args.pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          overlays = [ self.overlays.default ];
+        }
+      );
+    in
+    {
+      formatter = eachSystem (system: packages.${system}.nixfmt-rfc-style);
 
-          formatter = pkgs.nixfmt-rfc-style;
+      overlays.default = _: pkgs: { };
 
-          # libs = pkgs.callPackage ./lib { };
+      packages = eachSystem (system: self.overlays.default null packages.${system});
 
-          devShells.default = pkgs.mkShell { packages = [ pkgs.nvfetcher ]; };
-
-          packages = {
-            spicetify = pkgs.callPackage ./pkgs { };
-            default = config.packages.spicetify;
-          };
-
-          checks = {
-            all-tests = pkgs.callPackage ./tests { };
-            minimal-config = pkgs.callPackage ./tests/minimal-config.nix { };
-            all-for-theme = pkgs.callPackage ./tests/all-for-theme.nix { };
-            apps = pkgs.callPackage ./tests/apps.nix { };
-            default = self.checks.${system}.all-tests;
-            all-exts-and-apps = builtins.mapAttrs (_: value: self.checks.${system}.all-for-theme value) (
-              builtins.removeAttrs (pkgs.callPackage ./pkgs { }).themes [
-                "override"
-                "overrideDerivation"
-              ]
-            );
-          };
-        };
-
-      flake = {
-        libs = nixpkgs.legacyPackages.callPackage ./lib { };
-        homeManagerModules = {
-          spicetify = import ./module.nix { isNixOSModule = false; };
-          default = self.homeManagerModules.spicetify;
-        };
-
-        nixosModules = {
-          spicetify = import ./module.nix { isNixOSModule = true; };
-          default = self.nixosModules.spicetify;
-        };
-
-        # nice aliases
-        homeManagerModule = self.homeManagerModules.default;
-        nixosModule = self.nixosModules.default;
-      };
+      devShells = eachSystem (system: {
+        default = packages.${system}.mkShell { };
+      });
     };
 }
