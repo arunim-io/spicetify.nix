@@ -2,6 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
+    parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     spicetify-cli = {
       url = "github:spicetify/cli";
       flake = false;
@@ -21,39 +25,39 @@
   };
 
   outputs =
-    {
-      self,
+    inputs@{
       nixpkgs,
+      parts,
       systems,
-      spicetify-cli,
       spotifywm,
+      spicetify-cli,
       ...
     }:
-    let
-      eachSystem =
-        func:
-        nixpkgs.lib.genAttrs (import systems) (
-          system:
-          func (
-            import nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            }
-          )
-        );
-    in
-    {
-      formatter = eachSystem (pkgs: pkgs.nixfmt-rfc-style);
+    parts.lib.mkFlake { inherit inputs; } {
+      systems = import systems;
 
-      overlays.default = final: prev: {
-        spicetify-cli = prev.callPackage ./pkgs/spicetify-cli.nix { src = spicetify-cli; };
-        spotifywm = prev.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
-      };
+      imports = [ parts.flakeModules.easyOverlay ];
 
-      packages = eachSystem (pkgs: self.overlays.default null pkgs);
+      perSystem =
+        {
+          config,
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          _module.args.pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
 
-      devShells = eachSystem (pkgs: {
-        default = pkgs.mkShell { };
-      });
+          overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
+
+          packages = {
+            default = config.packages.spicetify-cli;
+            spicetify-cli = pkgs.callPackage ./pkgs/spicetify-cli.nix { src = spicetify-cli; };
+            spotifywm = pkgs.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
+          };
+        };
     };
 }
