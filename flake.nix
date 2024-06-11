@@ -94,13 +94,6 @@
 
             formatter = pkgs.nixfmt-rfc-style;
 
-            # DEPRECATED ---------------------------------------------------------------
-
-            pkgSets =
-              nixpkgs.lib.warn
-                "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
-                self.packages.${system}.default;
-
             devShells = {
               default = pkgs.mkShell { packages = [ pkgs.nvfetcher ]; };
             };

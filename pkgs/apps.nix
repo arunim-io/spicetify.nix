@@ -1,5 +1,6 @@
-{source, ...}:
-with source; {
+{ source, ... }:
+with source;
+{
   # CUSTOMAPPS ----------------------------------------------------------------
   localFiles = {
     name = "localFiles";

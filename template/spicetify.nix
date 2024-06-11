@@ -1,10 +1,8 @@
-{
-  pkgs,
-  spicetify-nix,
-  ...
-}: let
+{ pkgs, spicetify-nix, ... }:
+let
   spicePkgs = spicetify-nix.pkgSets.${pkgs.system};
-in {
+in
+{
   # configure spicetify :)
   programs.spicetify = {
     enable = true; # this is the line that will cause spotify to get installed
@@ -36,5 +34,5 @@ in {
     };
   };
 
-  imports = [spicetify-nix.homeManagerModule];
+  imports = [ spicetify-nix.homeManagerModule ];
 }

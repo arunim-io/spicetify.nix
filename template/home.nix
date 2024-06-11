@@ -4,8 +4,9 @@
   username,
   stateVersion,
   ...
-}: {
-  imports = [./spicetify.nix];
+}:
+{
+  imports = [ ./spicetify.nix ];
 
   # assume you're not using nixOS
   targets.genericLinux.enable = true;
@@ -16,10 +17,7 @@
   };
 
   # list where you can specify unfree packages to allow
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "spotify"
-    ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "spotify" ];
 
   home.packages = with pkgs; [
     # put packages you want to install here
