@@ -11,9 +11,9 @@ in
       # specifies the generated string for a subset of nix values
       mkValueString =
         v:
-        if v == true then
+        if v == "true" then
           "1"
-        else if v == false then
+        else if v == "false" then
           "0"
         # else if isString v then ''"${v}"''
         # and delegates all other values to the default generator

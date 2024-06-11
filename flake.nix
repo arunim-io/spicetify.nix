@@ -15,6 +15,8 @@
       ...
     }:
     {
+      lib = nixpkgs.legacyPackages.callPackage ./lib { };
+
       homeManagerModules = {
         spicetify = import ./module.nix { isNixOSModule = false; };
         default = self.homeManagerModules.spicetify;
@@ -28,30 +30,9 @@
       # nice aliases
       homeManagerModule = self.homeManagerModules.default;
       nixosModule = self.nixosModules.default;
-
-      templates.default = {
-        path = ./template;
-        description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
-      };
     }
-    # legacy stuff thats just for x86_64 linux
-    // (
-      let
-        legacyPkgs = import nixpkgs {
-          config.allowUnfree = true;
-          system = flake-utils.lib.system.x86_64-linux;
-        };
-      in
-      {
-        pkgs =
-          nixpkgs.lib.warn "spicetify-nix.pkgs is deprecated, use spicetify-nix.packages.\${pkgs.system}"
-            (legacyPkgs.callPackage ./pkgs { });
-        lib = nixpkgs.lib.warn "spicetify-nix.lib is deprecated, use spicetify-nix.libs.\${pkgs.system}" (
-          legacyPkgs.callPackage ./lib { }
-        );
-      }
-    )
     //
+      # legacy stuff thats just for x86_64 linux
       flake-utils.lib.eachSystem
         (
           let
@@ -71,8 +52,6 @@
             };
           in
           {
-            libs = pkgs.callPackage ./lib { };
-
             packages = {
               spicetify = pkgs.callPackage ./pkgs { };
               default = self.packages.${system}.spicetify;
