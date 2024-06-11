@@ -7,12 +7,9 @@
 }:
 stdenv.mkDerivation {
   pname = "spotifywm";
-  inherit ((callPackage ./_sources/generated.nix { }).spotifywmSrc) src version;
+  inherit ((callPackage ./_sources/generated.nix {}).spotifywmSrc) src version;
 
-  buildInputs = [
-    xorg.libX11
-    makeWrapper
-  ];
+  buildInputs = [xorg.libX11 makeWrapper];
 
   installPhase = ''
     mkdir -p $out/lib

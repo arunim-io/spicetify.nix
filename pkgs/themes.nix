@@ -1,12 +1,15 @@
-{ lib, source, ... }:
-with source;
-let
+{
+  lib,
+  source,
+  ...
+}:
+with source; let
   # THEMES --------------------------------------------------------------------
   SpotifyNoPremium = {
     name = "SpotifyNoPremium";
     src = spotifyNoPremiumSrc;
     appendName = false;
-    requiredExtensions = [ brokenAdblock ]; # might also require charliesAdblock
+    requiredExtensions = [brokenAdblock]; # might also require charliesAdblock
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
@@ -177,36 +180,34 @@ let
       }
     ];
   };
-in
-{
-  official =
-    let
-      dribbblishExt = {
-        filename = "dribbblish.js";
-        src = "${officialThemes}/Dribbblish";
-      };
+in {
+  official = let
+    dribbblishExt = {
+      filename = "dribbblish.js";
+      src = "${officialThemes}/Dribbblish";
+    };
 
-      turntableExt = {
-        filename = "turntable.js";
-        src = "${officialThemes}/Turntable";
+    turntableExt = {
+      filename = "turntable.js";
+      src = "${officialThemes}/Turntable";
+    };
+    mkOfficialTheme = themeName: {
+      ${themeName} = {
+        name = themeName;
+        src = officialThemes;
+        appendName = true;
+        injectCss = true;
+        replaceColors = true;
+        overwriteAssets = false;
+        sidebarConfig = false;
       };
-      mkOfficialTheme = themeName: {
-        ${themeName} = {
-          name = themeName;
-          src = officialThemes;
-          appendName = true;
-          injectCss = true;
-          replaceColors = true;
-          overwriteAssets = false;
-          sidebarConfig = false;
-        };
-      };
-    in
+    };
+  in
     {
       Dribbblish = {
         name = "Dribbblish";
         src = officialThemes;
-        requiredExtensions = [ dribbblishExt ];
+        requiredExtensions = [dribbblishExt];
         patches = {
           "xpui.js_find_8008" = ",(\\w+=)32";
           "xpui.js_repl_8008" = ",$\{1}56";
@@ -244,10 +245,7 @@ in
       Turntable = {
         name = "Turntable";
         src = officialThemes;
-        requiredExtensions = [
-          "fullAppDisplay.js"
-          turntableExt
-        ];
+        requiredExtensions = ["fullAppDisplay.js" turntableExt];
       };
       catppuccin = {
         name = "catppuccin";
