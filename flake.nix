@@ -31,6 +31,7 @@
       systems,
       spotifywm,
       spicetify-cli,
+      spicetify-themes,
       ...
     }:
     parts.lib.mkFlake { inherit inputs; } {
@@ -53,11 +54,16 @@
 
           overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
-          packages = {
-            default = config.packages.spicetify-cli;
-            spicetify-cli = pkgs.callPackage ./pkgs/spicetify-cli.nix { src = spicetify-cli; };
-            spotifywm = pkgs.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
-          };
+          packages =
+            {
+              default = config.packages.spicetify-cli;
+              spicetify-cli = pkgs.callPackage ./pkgs/spicetify-cli.nix { src = spicetify-cli; };
+              spotifywm = pkgs.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
+            }
+            // (import ./pkgs/themes.nix {
+              inherit pkgs;
+              input = spicetify-themes;
+            });
         };
     };
 }
