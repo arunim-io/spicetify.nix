@@ -26,6 +26,7 @@
 
   outputs =
     inputs@{
+      self,
       nixpkgs,
       parts,
       systems,
@@ -39,6 +40,8 @@
 
       imports = [ parts.flakeModules.easyOverlay ];
 
+      flake.lib.mkSpiceLib = pkgs: import ./lib { inherit pkgs; };
+
       perSystem =
         {
           config,
@@ -46,6 +49,9 @@
           system,
           ...
         }:
+        let
+          spiceLib = self.lib.mkSpiceLib pkgs;
+        in
         {
           _module.args.pkgs = import nixpkgs {
             inherit system;
@@ -61,7 +67,7 @@
               spotifywm = pkgs.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
             }
             // (import ./pkgs/themes.nix {
-              inherit pkgs;
+              inherit pkgs spiceLib;
               input = spicetify-themes;
             });
         };
