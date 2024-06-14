@@ -69,6 +69,10 @@
             // (import ./pkgs/themes.nix {
               inherit pkgs spiceLib;
               input = spicetify-themes;
+            })
+            // (import ./pkgs/extensions.nix {
+              inherit pkgs spiceLib;
+              input = spicetify-cli;
             });
         };
     };

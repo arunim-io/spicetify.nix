@@ -5,7 +5,7 @@
   version,
   type,
   name,
-  fileNames,
+  fileNames ? { },
   ...
 }:
 let
