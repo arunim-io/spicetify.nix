@@ -6,4 +6,5 @@ in
   mkPackage = callPackage ./mkPackage.nix { };
   mkTheme = callPackage ./mkTheme.nix { };
   mkExtension = callPackage ./mkExtension.nix { };
+  mkCustomApp = callPackage ./mkCustomApp.nix { };
 }
