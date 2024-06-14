@@ -6,11 +6,13 @@ attrs@{
   ...
 }:
 let
-  mkPackage = callPackage ./mkPackage.nix { };
+  package = callPackage ./package.nix { };
 
-  userCssExists = builtins.pathExists "${src}/user.css";
-  colorIniExists = builtins.pathExists "${src}/color.ini";
   fileNames =
+    let
+      colorIniExists = builtins.pathExists "${src}/color.ini";
+      userCssExists = builtins.pathExists "${src}/user.css";
+    in
     (
       if userCssExists && colorIniExists then
         [
@@ -26,7 +28,7 @@ let
     )
     ++ fileNames;
 in
-mkPackage (
+package (
   {
     inherit name src fileNames;
     type = "theme";

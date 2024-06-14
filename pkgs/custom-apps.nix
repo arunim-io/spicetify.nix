@@ -1,15 +1,16 @@
 { spiceLib, input, ... }:
 let
-  officialCustomAppNames = builtins.attrNames (builtins.readDir "${input}/CustomApps");
-
-  customApps = builtins.map (customAppName: {
-    name = "spicetify-custom-app-${customAppName}";
+  dir = "${input}/CustomApps";
+in
+builtins.listToAttrs (
+  builtins.map (name: {
+    name = "spicetify-custom-app-${name}";
 
     value = spiceLib.builders.mkCustomApp {
-      src = "${input}/CustomApps/${customAppName}";
-      name = customAppName;
+      inherit name;
+
+      src = "${dir}/${name}";
       version = input.shortRev;
     };
-  }) officialCustomAppNames;
-in
-builtins.listToAttrs customApps
+  }) (builtins.attrNames (builtins.readDir dir))
+)

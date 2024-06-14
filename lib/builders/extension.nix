@@ -6,7 +6,7 @@ attrs@{
   ...
 }:
 let
-  mkPackage = callPackage ./mkPackage.nix { };
+  mkPackage = callPackage ./package.nix { };
 in
 mkPackage (
   {

@@ -3,8 +3,8 @@ let
   inherit (pkgs) callPackage;
 in
 {
-  mkPackage = callPackage ./mkPackage.nix { };
-  mkTheme = callPackage ./mkTheme.nix { };
-  mkExtension = callPackage ./mkExtension.nix { };
-  mkCustomApp = callPackage ./mkCustomApp.nix { };
+  mkPackage = callPackage ./package.nix { };
+  mkTheme = callPackage ./theme.nix { };
+  mkExtension = callPackage ./extension.nix { };
+  mkCustomApp = callPackage ./custom-app.nix { };
 }

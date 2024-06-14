@@ -6,7 +6,7 @@ attrs@{
   ...
 }:
 let
-  mkPackage = callPackage ./mkPackage.nix { };
+  mkPackage = callPackage ./package.nix { };
 
   manifest = builtins.fromJSON (builtins.readFile "${src}}/manifest.json");
 in

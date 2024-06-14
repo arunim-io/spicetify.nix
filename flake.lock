@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1717786204,
-        "narHash": "sha256-4q0s6m0GUcN7q+Y2DqD27iLvbcd1G50T2lv08kKxkSI=",
+        "lastModified": 1718318537,
+        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "051f920625ab5aabe37c920346e3e69d7d34400e",
+        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
     "spicetify-cli": {
       "flake": false,
       "locked": {
-        "lastModified": 1717871520,
-        "narHash": "sha256-wAZ45RqxiAC6ELrBG4YB8yuksDQmqq+LPJfWhPqgRDI=",
+        "lastModified": 1718289180,
+        "narHash": "sha256-s+arCV5O8EaheJSlRCXxWqIwSPZ2SfRWKVFnYTgBYIQ=",
         "owner": "spicetify",
         "repo": "cli",
-        "rev": "d674d778855bb8e38dec2ba23d5ddac6826f7d63",
+        "rev": "c1493ae64f5f0f83201fde6413019e864ff09425",
         "type": "github"
       },
       "original": {

@@ -7,10 +7,10 @@
 let
   inherit (pkgs.lib) removeSuffix;
 
-  officialExtensionNames = builtins.map (name: removeSuffix ".js" name) (
-    builtins.attrNames (builtins.readDir "${input}/Extensions")
-  );
-  extensions = builtins.map (
+  dir = "${input}/Extensions";
+in
+builtins.listToAttrs (
+  builtins.map (
     name:
     let
       extensionName = builtins.replaceStrings [ "+" ] [ "-plus" ] name;
@@ -19,11 +19,10 @@ let
       name = "spicetify-extension-${extensionName}";
 
       value = spiceLib.builders.mkExtension {
-        src = "${input}/Extensions/";
+        src = dir;
         name = extensionName;
         version = input.shortRev;
       };
     }
-  ) officialExtensionNames;
-in
-builtins.listToAttrs extensions
+  ) (builtins.map (name: removeSuffix ".js" name) (builtins.attrNames (builtins.readDir dir)))
+)
