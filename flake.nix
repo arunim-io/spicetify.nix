@@ -73,6 +73,10 @@
             // (import ./pkgs/extensions.nix {
               inherit pkgs spiceLib;
               input = spicetify-cli;
+            })
+            // (import ./pkgs/custom-apps.nix {
+              inherit pkgs spiceLib;
+              input = spicetify-cli;
             });
         };
     };
