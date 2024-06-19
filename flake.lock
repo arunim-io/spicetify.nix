@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718318537,
-        "narHash": "sha256-4Zu0RYRcAY/VWuu6awwq4opuiD//ahpc2aFHg2CWqFY=",
+        "lastModified": 1718530797,
+        "narHash": "sha256-pup6cYwtgvzDpvpSCFh1TEUjw2zkNpk8iolbKnyFmmU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e9ee548d90ff586a6471b4ae80ae9cfcbceb3420",
+        "rev": "b60ebf54c15553b393d144357375ea956f89e9a9",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
     "spicetify-cli": {
       "flake": false,
       "locked": {
-        "lastModified": 1718289180,
-        "narHash": "sha256-s+arCV5O8EaheJSlRCXxWqIwSPZ2SfRWKVFnYTgBYIQ=",
+        "lastModified": 1718749056,
+        "narHash": "sha256-eFhb9PeTOr5rsDrbUJs4zxmjRejyknYgZyVMxASxBKY=",
         "owner": "spicetify",
         "repo": "cli",
-        "rev": "c1493ae64f5f0f83201fde6413019e864ff09425",
+        "rev": "da1df2c59456accf58dd7f536354e2bb381f785c",
         "type": "github"
       },
       "original": {
@@ -66,11 +66,11 @@
     "spicetify-marketplace": {
       "flake": false,
       "locked": {
-        "lastModified": 1717501678,
-        "narHash": "sha256-Nh+BICszb6GLSdVhUzOspB+vZ73v8ClupPtJq3c5qfc=",
+        "lastModified": 1718642968,
+        "narHash": "sha256-voRbsyOPeVY5lznXRzY/8SB+52po7Dq5IAPs0StmRTA=",
         "owner": "spicetify",
         "repo": "marketplace",
-        "rev": "4d595134063241d17b1eaaa8ec3919205a8e431a",
+        "rev": "8dff639eb2ba1b79feb71e861f005d5b6b17af64",
         "type": "github"
       },
       "original": {

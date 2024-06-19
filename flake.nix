@@ -40,7 +40,12 @@
 
       imports = [ parts.flakeModules.easyOverlay ];
 
-      flake.lib.mkSpiceLib = pkgs: import ./lib { inherit pkgs; };
+      flake = {
+        lib.mkSpiceLib = pkgs: import ./lib { inherit pkgs; };
+
+        homeManagerModules.default = import ./module.nix { inherit inputs; };
+        homeManagerModule = self.homeManagerModules.default;
+      };
 
       perSystem =
         {
@@ -60,24 +65,9 @@
 
           overlayAttrs = builtins.removeAttrs config.packages [ "default" ];
 
-          packages =
-            {
-              default = config.packages.spicetify-cli;
-              spicetify-cli = pkgs.callPackage ./pkgs/spicetify-cli.nix { src = spicetify-cli; };
-              spotifywm = pkgs.callPackage ./pkgs/spotifywm.nix { src = spotifywm; };
-            }
-            // (import ./pkgs/themes.nix {
-              inherit pkgs spiceLib;
-              input = spicetify-themes;
-            })
-            // (import ./pkgs/extensions.nix {
-              inherit pkgs spiceLib;
-              input = spicetify-cli;
-            })
-            // (import ./pkgs/custom-apps.nix {
-              inherit pkgs spiceLib;
-              input = spicetify-cli;
-            });
+          packages = {
+            default = config.packages.spicetify-cli;
+          } // (import ./pkgs { inherit pkgs spiceLib inputs; });
         };
     };
 }
