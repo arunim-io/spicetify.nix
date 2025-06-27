@@ -411,13 +411,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "15bef78d655aa468801a48766267ad25ef9bc529",
-            "sha256": "sha256-j6Jz6aOFOXOEiRb0odBguhkKxp2dKj7sdA5OPuWYUIQ=",
+            "rev": "82e14abb3c954dd00c6c918ace7619b6ff558712",
+            "sha256": "sha256-vyLxL8zbz6Jmb19xWdrD0TrRKMMZKuJLyBjfJmgBsfU=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/spicetify/spicetify-themes"
         },
-        "version": "15bef78d655aa468801a48766267ad25ef9bc529"
+        "version": "82e14abb3c954dd00c6c918ace7619b6ff558712"
     },
     "omniSrc": {
         "cargoLocks": null,
