@@ -101,17 +101,17 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "54e1794d39cf1d8c9c8d3ea450d8c83090a6f94b";
+    version = "5e591fd5fdbd1cd0f3cf7aed0fe93047fc8cf91f";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "54e1794d39cf1d8c9c8d3ea450d8c83090a6f94b";
+      rev = "5e591fd5fdbd1cd0f3cf7aed0fe93047fc8cf91f";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-FE6zXO6leEUX1b7Tu6/GYV3sNHT6Y/c9EJUn9pmP/xs=";
+      sha256 = "sha256-51OBJKwvXmrib4K43mAipAg6o9N4vGhLUi5fenLFlng=";
     };
-    date = "2025-06-10";
+    date = "2025-07-02";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -157,17 +157,17 @@
   };
   hidePodcastsSrc = {
     pname = "hidePodcastsSrc";
-    version = "05ad017439c45154bec74b76ded06df0a5834292";
+    version = "03a552bcdf5b8b032055342a74b3117fe02db1ab";
     src = fetchgit {
       url = "https://github.com/theRealPadster/spicetify-hide-podcasts";
-      rev = "05ad017439c45154bec74b76ded06df0a5834292";
+      rev = "03a552bcdf5b8b032055342a74b3117fe02db1ab";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Rphz68tsGWXlpidyDcEQHLfC0WCuZJ9IehIbdAxgGv8=";
+      sha256 = "sha256-kTRv3czxyuYkH/sapff9ORHx9lO6lrKd0/uXhj3kV1w=";
     };
-    date = "2025-06-02";
+    date = "2025-07-02";
   };
   historySrc = {
     pname = "historySrc";
@@ -241,17 +241,17 @@
   };
   nameThatTuneSrc = {
     pname = "nameThatTuneSrc";
-    version = "875aa06bb97533b14956a4119d47ee4550935181";
+    version = "de72806ca6f3457853e937808a0877b0bb4db80c";
     src = fetchgit {
       url = "https://github.com/theRealPadster/name-that-tune";
-      rev = "875aa06bb97533b14956a4119d47ee4550935181";
+      rev = "de72806ca6f3457853e937808a0877b0bb4db80c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-1IhiqR3eXzYv/sid9frnrE/EtpE5XjPZbVpxKy9s1I4=";
+      sha256 = "sha256-iCg2kv+SeWKvARv+g9grp+ixAmV2WSnbWgV/OJ3H2Rk=";
     };
-    date = "2025-06-01";
+    date = "2025-07-01";
   };
   nordSrc = {
     pname = "nordSrc";
