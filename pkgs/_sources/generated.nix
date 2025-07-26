@@ -283,17 +283,17 @@
   };
   officialThemes = {
     pname = "officialThemes";
-    version = "4d096d1374631cc7188cb5487a7fd34dbb5afdbe";
+    version = "501e7118ccca19139d8331d4b377dc6b66e46421";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-themes";
-      rev = "4d096d1374631cc7188cb5487a7fd34dbb5afdbe";
+      rev = "501e7118ccca19139d8331d4b377dc6b66e46421";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-p6lXLdpvO7HC5hL987e1ipgSFaRx0e4GwVu7IkrmA0s=";
+      sha256 = "sha256-d6xxydORLenqRw6PLW8M9FnLHYj7k0ALUsDlm6jEW1M=";
     };
-    date = "2025-07-04";
+    date = "2025-07-26";
   };
   omniSrc = {
     pname = "omniSrc";
@@ -367,17 +367,17 @@
   };
   spotifyCanvasSrc = {
     pname = "spotifyCanvasSrc";
-    version = "d3fd4a3ef31726bc9b9f5192bc7f4e6bc2f98e6c";
+    version = "02318f300fc5dde257af9348c8c752f7d566ccff";
     src = fetchgit {
       url = "https://github.com/itsmeow/Spicetify-Canvas";
-      rev = "d3fd4a3ef31726bc9b9f5192bc7f4e6bc2f98e6c";
+      rev = "02318f300fc5dde257af9348c8c752f7d566ccff";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-QhhxZo2V+jhJfsEM+TFTzHb6A5ddnsyTJdDgtshSpk8=";
+      sha256 = "sha256-SNyBbFKBy4yOEVa1iFPqH1cr2pqfdIGu72ErtjR1yUs=";
     };
-    date = "2024-03-03";
+    date = "2025-07-25";
   };
   spotifyNoPremiumSrc = {
     pname = "spotifyNoPremiumSrc";
