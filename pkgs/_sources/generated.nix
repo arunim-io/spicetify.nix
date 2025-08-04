@@ -157,17 +157,17 @@
   };
   hidePodcastsSrc = {
     pname = "hidePodcastsSrc";
-    version = "2fd9f0d4d5c4dafabae4b3bd8e3a612f2fb79be2";
+    version = "ded693c1fb61cb9a7e89978db94e58ed2a16bf32";
     src = fetchgit {
       url = "https://github.com/theRealPadster/spicetify-hide-podcasts";
-      rev = "2fd9f0d4d5c4dafabae4b3bd8e3a612f2fb79be2";
+      rev = "ded693c1fb61cb9a7e89978db94e58ed2a16bf32";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-CiniXT559t+jdiyw47F0MwFQr4wqt4zXWe0xpaJfKuk=";
+      sha256 = "sha256-/wVPIYzw40OlxxwL3kQhgUl0gcKmSX6HAGq1jojXFYo=";
     };
-    date = "2025-07-02";
+    date = "2025-08-03";
   };
   historySrc = {
     pname = "historySrc";
@@ -227,17 +227,17 @@
   };
   marketplaceSrc = {
     pname = "marketplaceSrc";
-    version = "80ad6ba72d868ce54e501a998d388367df17418e";
+    version = "34139905fdf329832d554ab2aaa24b1e2bc28223";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-marketplace";
-      rev = "80ad6ba72d868ce54e501a998d388367df17418e";
+      rev = "34139905fdf329832d554ab2aaa24b1e2bc28223";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-e7FLP/dYks6+G/wzYDRnKG5S9z0OQ7QvclU98mX9Zgk=";
+      sha256 = "sha256-YxDWnh/iW5J3NIemXwFwvWJxbcTOl1+FaeNV/6FqQoo=";
     };
-    date = "2025-07-13";
+    date = "2025-08-04";
   };
   nameThatTuneSrc = {
     pname = "nameThatTuneSrc";
