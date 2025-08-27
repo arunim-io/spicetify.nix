@@ -87,17 +87,17 @@
   };
   dakshExtensions = {
     pname = "dakshExtensions";
-    version = "fcc4de6130e45871bc7309410d74073bafcdee45";
+    version = "d65abc6e869fdd456bd7ead83b5583926b57f103";
     src = fetchgit {
       url = "https://github.com/daksh2k/Spicetify-stuff";
-      rev = "fcc4de6130e45871bc7309410d74073bafcdee45";
+      rev = "d65abc6e869fdd456bd7ead83b5583926b57f103";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-QipUqULjU+tM+/DBk1VhaL/7/Y+KFQgoPL2SGvrvFXM=";
+      sha256 = "sha256-v6dQcAaGPikHgeHmc8dYobomDej5V9SGeXpTbdbYtCY=";
     };
-    date = "2025-08-20";
+    date = "2025-08-27";
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
